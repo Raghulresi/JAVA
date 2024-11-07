@@ -1,1 +1,56 @@
+import java.util.*;
 
+class graph{
+    
+    int  vertices;
+    LinkedList<Integer>[] adjList;
+    
+    graph(int vertices){
+        this.vertices = vertices; 
+        adjList=new LinkedList[vertices]; 
+        for(int i=0;i<vertices;i++){
+            adjList[i]=new LinkedList<>();
+        }
+    }
+    
+    public void addEdge(int a, int b){
+        adjList[a].add(b);
+        adjList[b].add(a);
+    }
+    
+    public void bfs(int start) {
+        boolean[] visited = new boolean[vertices];
+        Queue<Integer> que = new LinkedList<>();
+        visited[start] = true;
+        que.add(start);
+        System.out.println("Starting BFS from vertex " + start);
+        while (!que.isEmpty()) {
+            int vertex = que.poll();
+            System.out.print(vertex + " ---> ");
+            
+            for (int a : adjList[vertex]) {
+                if (!visited[a]) {
+                    visited[a] = true;
+                    que.add(a);
+                }
+            }
+        }
+    }
+}
+
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        //vertices
+       graph g = new graph(6);
+       //a,b
+       g.addEdge(0,1);
+       g.addEdge(0,2);
+       g.addEdge(1,3);
+       g.addEdge(2,4);
+       g.addEdge(3,5);
+       g.addEdge(4,5);   
+       
+       g.bfs(0);
+    }
+}
