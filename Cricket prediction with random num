@@ -48,7 +48,7 @@ public class Main
 		s1=s1-Math.abs(ans1-guess1);
 		System.out.println("point of team1: "+s1);
 		
-		
+		System.out.println("------------------------------------------");
 		
 		int count2 = 0;
 		String ch2 ;
@@ -66,8 +66,9 @@ public class Main
 		int guess2 = sc.nextInt();
 		int s2 = 300-(count2*25);
 		s2=s2-Math.abs(ans2-guess2);
-		
 		System.out.println("Point of team2:"+s2);
+		
+		System.out.println("------------------------------------------");
 		
 		if(s1>s2){
 		    System.out.println(team1+"Is a winner");
