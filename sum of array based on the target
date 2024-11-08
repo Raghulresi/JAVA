@@ -7,6 +7,7 @@ class HelloWorld {
         while(s<e){
             if(nums[s]+nums[e]==target){
                 //below empty array is used to store in result array in main function
+                //int[] res = master(nums,target);
                 return new int[]{s,e};
             }
                 else if(nums[s]+nums[e]<target)
