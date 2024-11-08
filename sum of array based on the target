@@ -6,11 +6,12 @@ class HelloWorld {
         int e = nums.length-1;
         while(s<e){
             if(nums[s]+nums[e]==target){
-                //below empty array is used to store in result in main function
+                //below empty array is used to store in result array in main function
                 return new int[]{s,e};
             }
                 else if(nums[s]+nums[e]<target)
                 s++;
+                
                 else
                 e--;
             
@@ -24,6 +25,8 @@ class HelloWorld {
         System.out.println("Enter a target: ");
         int target = sc.nextInt();
         int[] res = master(nums,target);
+        
+        //the length ==2 because of start s and end e index return value
         if(res.length==2)
         System.out.println(res[0]+" "+res[1]);
         else
@@ -31,6 +34,5 @@ class HelloWorld {
         
     }
 }
-
 
 
