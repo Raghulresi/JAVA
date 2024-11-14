@@ -1,1 +1,38 @@
 
+public class Main
+{
+    
+    public static boolean isprime(int i)
+    {
+        int c=0;
+        for(int j=2;j<=11;j++)
+        {
+            if(i%j==0)
+            c++;
+        }
+        
+        return c==0;
+    }
+    
+    public static boolean sum(int i)
+    {
+     int last =i/10;
+     if(last%2==1)
+     {
+         return true;
+     }return false;
+    }
+    
+	public static void main(String[] args) {
+		for(int i=11;i<100;i++)
+		{
+		    if(isprime(i))
+		    {
+		        if(sum(i))
+		        {
+		            System.out.println(i);
+		        }
+		    }
+		}
+	}
+}
