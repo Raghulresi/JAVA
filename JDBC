@@ -1,1 +1,27 @@
-
+import java.sql.*;
+public class TRY {
+	
+	public static void display() throws Exception
+	{
+		String url = "jdbc:mysql://localhost:3306/SAI";
+        String user = "root";
+        String pass = "27MAR2005";
+        String query = "SELECT * FROM STU";
+	
+	Connection con = DriverManager.getConnection(url, user, pass);
+    Statement st = con.createStatement();
+    ResultSet rs = st.executeQuery(query);
+	
+	while(rs!=null) {
+		System.out.println("ID is: "+rs.getInt(1));
+		System.out.println("ID is: "+rs.getString(2));
+		System.out.println("ID is: "+rs.getFloat(3));
+	}
+	con.close();
+	}
+	
+public static void main(String[] args) throws Exception {
+	display();
+}
+	
+}
