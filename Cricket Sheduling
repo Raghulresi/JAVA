@@ -1,1 +1,44 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter the total number of teams: ");
+        int tot = sc.nextInt();
+        
+        sc.nextLine();
+        
+        System.out.println("Enter number of meeting : ");
+        int meet = sc.nextInt();
+        
+        sc.nextLine();
+        
+        System.out.println("Enter team names: ");
+        String[] team = new String[tot]; 
+        for(int i=0;i<tot;i++){
+            team[i]=sc.nextLine();
+        }
+        
+        ArrayList<String> match = new ArrayList<>();
+        
+        for(int i=0;i<tot;i++)
+        {
+            for(int j=i+1;j<tot;j++)
+            {
+                for(int k=0;k<meet;k++)
+                {
+                    match.add(team[i] +" VS "+team[j]);
+                }
+            }
+        }
+        
+        
+        Collections.shuffle(match);
+        
+        for(String f : match){
+            System.out.println(f);
+        }
+        
+    }
+}
 
