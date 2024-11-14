@@ -15,7 +15,7 @@ class Main {
               }
               else
               {
-                 dp[i][j]=Math.max(dp[i-1][j-1],dp[i-1][j]);
+                 dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1]);
               }
           }
         }
@@ -38,7 +38,7 @@ class Main {
         String s1 ="abaaba";
         String s2 ="babbab";
         int result=lcs(s1,s2);
-        System.out.println(result);
+        System.out.println("LOWEST COMMON SEQUENCES: "+result);
         
         
     }
