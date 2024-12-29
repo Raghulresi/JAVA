@@ -1,0 +1,61 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int r = sc.nextInt();
+		int c = sc.nextInt();
+		int[][] mat = new int[r][c];
+		
+		for(int i=0;i<r;i++)
+		{
+		    for(int j=0;j<c;j++)
+		    {
+		        mat[i][j]=sc.nextInt();
+		    }
+		}
+		
+		boolean[] zero = new boolean[r];
+		boolean[] zeroo = new boolean[c];
+		
+		for(int i=0;i<r;i++)
+		{
+		    for(int j=0;j<c;j++)
+		    {
+		        if(mat[i][j]==0)
+		        {
+		            zero[i]=true;
+		            zeroo[j]=true;
+		        }
+		    }
+		}
+		
+		for(int i=0;i<r;i++)
+		{
+		    for(int j=0;j<c;j++)
+		    {
+		       if(zero[i] || zeroo[j])
+		       {
+		           mat[i][j]=0;
+		       }
+		    }
+		}
+		
+		for(int i=0;i<r;i++)
+		{
+		    for(int j=0;j<c;j++)
+		    {
+		        System.out.print(mat[i][j]+" ");
+		    }
+		    System.out.println(" ");
+		}
+	}
+}
