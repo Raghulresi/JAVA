@@ -1,0 +1,27 @@
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		String s = sc.nextLine();
+		int i=0;  
+
+		String[] arr = s.split(" ");
+		int n = arr.length;
+		for(String a : arr)
+		{
+		    i++;
+		    int j=0;
+		    for(char g : a.toCharArray()){
+		        j++;
+		    }
+		    
+		    System.out.print(j+" ");
+		    
+		}System.out.println(" ");
+		
+		System.out.println(i);
+		
+	}
+}
