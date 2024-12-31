@@ -1,0 +1,95 @@
+import java.util.*;
+
+class vehicle
+{
+    public static void ve(String make,String model,int year,String fuel)
+    {   
+        
+        System.out.println("make : "+make);
+        System.out.println("model : "+model);
+        System.out.println("year : "+year);
+        System.out.println("fuel : "+fuel);
+     
+    }
+}
+class truck extends vehicle
+{
+    
+    public static void speed(int dis,int time)
+    {
+        System.out.println("SPEED: "+dis/time);
+    }
+    public static void distance(int speed,int time)
+    {
+        System.out.println("DISTANCE: "+speed*time);
+    }
+    public static void fueleff(int dis,int fuel)
+    {
+        System.out.println("FUELEFFICIENCY: "+dis/fuel);   
+    }
+}
+class car extends vehicle
+{
+    
+    public static void speed(int dis,int time)
+    {
+        System.out.println("SPEED: "+dis/time);
+    }
+    public static void distance(int speed,int time)
+    {
+        System.out.println("DISTANCE: "+speed*time);
+    }
+    public static void fueleff(int dis,int fuel)
+    {
+        System.out.println("FUELEFFICIENCY: "+dis/fuel);   
+    }
+    
+}
+class motorcycle extends vehicle
+{   
+    public static void speed(int dis,int time)
+    {
+        System.out.println("SPEED: "+dis/time);
+    }
+    public static void distance(int speed,int time)
+    {
+        System.out.println("DISTANCE: "+speed*time);
+    }
+    public static void fueleff(int dis,int fuel)
+    {
+        System.out.println("FUELEFFICIENCY: "+dis/fuel);   
+    }
+}
+
+
+public class Main
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("-----MOTORCYCLE-----");
+		motorcycle m = new motorcycle();
+		m.ve("Alpha","Q1",2020,"Petrol");
+		m.speed(2500,60);
+		m.distance(30,60);
+		m.fueleff(30,10);
+		System.out.println(" ");
+		
+		System.out.println("-----TRUCK-----");
+		truck t = new truck();
+		t.ve("Beta","Y1",2021,"Diesel");
+		t.speed(25,60);
+		t.distance(30,60);
+		t.fueleff(30,10);
+		System.out.println(" ");
+		
+		System.out.println("------CAR------");
+		car c = new car();
+		c.ve("Audi","G1",2022,"Petrol");
+		c.speed(25,60);
+		c.distance(30,60);
+		c.fueleff(30,10);
+		
+	}
+}
