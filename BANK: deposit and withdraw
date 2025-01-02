@@ -52,7 +52,7 @@ class currentacc extends bankacc
 	public void withdraw(int cw,int total,int ccount)
 	{
 	    
-		if(ccount>5)
+		if(ccount<5)
 		{
 		   
 	     	System.out.println("Amount withdraw successfully");
