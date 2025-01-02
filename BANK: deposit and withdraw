@@ -1,0 +1,159 @@
+import java.util.*;
+
+abstract class bankacc
+{
+	abstract void deposit(int a,int total);
+	abstract void withdraw(int a,int total,int count);
+}
+
+class savingacc extends bankacc
+{
+
+	public void display(int total)
+	{
+
+		System.out.println("The balance amount is : "+total);
+	}
+	public void deposit(int sa,int total)
+	{
+		
+		System.out.println("Amount deposit successfully ");
+		System.out.println("Balance = "+total);
+	}
+	public void withdraw(int sw,int total,int scount)
+	{
+	    
+	    if(scount<5)
+	    {
+	        
+	      	System.out.println("Amount withdraw successfully ");
+	     	System.out.println("Balance = "+total);
+	    }
+	    else
+	    {
+	        System.out.println("You already withdrawed 5 times come back next month");
+	    }
+	}
+}
+
+class currentacc extends bankacc
+{
+	public void display(int total)
+	{
+
+		System.out.println("The balance amount is : "+total);
+	}
+	public void deposit(int ca,int total)
+	{
+	
+		System.out.println("Amount deposit successfully ");
+		System.out.println("Balance = "+total);
+	}
+	public void withdraw(int cw,int total,int ccount)
+	{
+	    
+		if(ccount>5)
+		{
+		   
+	     	System.out.println("Amount withdraw successfully");
+	     	System.out.println("Balance = "+total);
+		}
+		else
+		{
+		    System.out.println("You already withdrawed 5 times come back next month");
+		}
+	}
+}
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+        int total = 5000000;
+        int ccount=0;
+        int scount=0;
+		
+		String start = "yes";
+
+		while(start.equals("yes"))
+		{
+		    
+			System.out.print("Enter the CURRENT or SAVING account : ");
+			String bank = sc.nextLine();
+
+			// current
+
+			if(bank.equals("current"))
+			{
+				currentacc c = new currentacc();
+				c.display(total);
+				System.out.print("Enter DEPOSIT or WITHDRAW : ");
+				String cchoice = sc.nextLine();
+
+				if(cchoice.equals("deposit"))
+				{
+					System.out.print("Enter the amount to deposit: ");
+					int cd = sc.nextInt();
+					total+=cd;
+					c.deposit(cd,total);
+					
+				}
+				else if(cchoice.equals("withdraw")) 
+				{
+				    ccount++;
+					System.out.print("Enter the amount to withdraw: ");
+					int cw = sc.nextInt();
+					total-=cw;
+					c.withdraw(cw,total,ccount);
+				
+				}
+				else 
+				{
+					System.out.println("Enter valid account!!! ");
+				}
+			}
+			//savings
+
+
+			else if(bank.equals("saving"))
+			{
+				savingacc s = new savingacc();
+				s.display(total);
+
+				System.out.print("Enter DEPOSIT or WITHDRAW : ");
+				String schoice = sc.nextLine();
+				if(schoice.equals("deposit"))
+				{
+					System.out.print("Enter the amount to deposit: ");
+					int sd = sc.nextInt();
+					total+=sd;
+					s.deposit(sd,total);
+					
+				}
+				else if(schoice.equals("withdraw")) 
+				{
+				    scount++;
+					System.out.print("Enter the amount to withdraw: ");
+					int cw = sc.nextInt();
+					total-=cw;
+					s.withdraw(cw,total,scount);
+					
+				}
+				else 
+				{
+					System.out.println("Enter valid account!!! ");
+				}
+			}
+
+			else 
+			{
+				System.out.println("Enter valid!!!");
+			}
+			
+			System.out.print("do you need banking : ");
+			sc.nextLine();
+			start =sc.nextLine();
+		}
+	}
+}
