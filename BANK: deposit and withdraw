@@ -23,7 +23,7 @@ class savingacc extends bankacc
 	public void withdraw(int sw,int total,int scount)
 	{
 	    
-	    if(scount<5)
+	    if(scount<=5)
 	    {
 	        
 	      	System.out.println("Amount withdraw successfully ");
@@ -52,7 +52,7 @@ class currentacc extends bankacc
 	public void withdraw(int cw,int total,int ccount)
 	{
 	    
-		if(ccount<5)
+		if(ccount<=5)
 		{
 		   
 	     	System.out.println("Amount withdraw successfully");
@@ -152,8 +152,8 @@ public class Main
 			}
 			
 			System.out.print("do you need banking : ");
-			sc.nextLine();
-			start =sc.nextLine();
+			
+			start = sc.nextLine();
 		}
 	}
 }
