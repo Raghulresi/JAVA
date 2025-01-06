@@ -1,0 +1,153 @@
+import java.util.ArrayList;
+import java.util.*;
+
+public class Main
+{
+    public static void add(ArrayList<Integer> a,int val)
+    {
+       a.add(val);
+    }
+    
+    public static void addpos(ArrayList<Integer> a,int val,int pos)
+    {
+       a.add(pos,val);   
+    }
+    
+    public static void remove(ArrayList<Integer> a,int index)
+    {
+       a.remove(index);
+    }
+    
+    public static void empty(ArrayList<Integer> a)
+    {
+        String m = !a.isEmpty() ? "Array List-->Not Empty" : "Array List-->Empty";
+        System.out.println(m);
+    }
+    
+    public static void display(ArrayList<Integer> a)
+    {
+        System.out.println(a);
+    }
+    
+    public static void clear(ArrayList<Integer> a)
+    {
+        a.clear();
+    }
+    
+    public static void checkval(ArrayList<Integer>a,int val)
+    {
+        System.out.println(a.contains(val));
+    }
+    
+    public static void sort(ArrayList<Integer> a)
+    {
+        Collections.sort(a);
+    }
+    
+    public static void shuffle(ArrayList<Integer> a)
+    {
+        Collections.shuffle(a);
+    }
+    
+    public static void update(ArrayList<Integer>a,int index,int val)
+    {
+        a.set(index,val);
+    }
+    
+	public static void main (String[] args) 
+	{
+	   
+	    Scanner sc = new Scanner(System.in);
+	    
+	    ArrayList<Integer> a = new ArrayList<Integer>();
+	    
+	    System.out.println("1.Add element ");
+	    System.out.println("2.Add at position");
+	    System.out.println("3.Remove element");
+	    System.out.println("4.Check empty");
+	    System.out.println("5.Display");
+	    System.out.println("6.Clear all element in ArrayList");
+	    System.out.println("7.Check for element");
+	    System.out.println("8.Sort all value in ArrayList");
+	    System.out.println("9.Shuffle all element in ArrayList");
+	    System.out.println("10.Update value");
+	    System.out.println("11.Exit");
+	    int choice,val,index;
+	    
+	    do{
+	        System.out.print("Enter your choice: ");
+	        choice = sc.nextInt();
+	        switch(choice)
+	        {
+	            case 1:
+	                System.out.print("Enter the element to insert: ");
+	                val = sc.nextInt();
+	                add(a,val);
+	                break;
+	                
+	            case 2:
+	                 System.out.print("Enter the element: ");
+	                 val = sc.nextInt();
+	                 System.out.print("Enter the position: ");
+	                 int pos = sc.nextInt();
+	                 addpos(a,val,pos);
+	                 break;
+	                
+	            case 3:
+	                System.out.print("Enter the index to remove: ");
+	                index = sc.nextInt();
+	                remove(a,index);
+	                break;
+	                
+	            case 4:
+	                empty(a);
+	                break;
+	                
+	            case 5:
+	                display(a);
+	                break;
+	                
+	            case 6:
+	                System.out.println("All arraylist element deleted");
+	                clear(a);
+	                break;
+	                
+	            case 7:
+	                System.out.print("Enter the element to check if present: ");
+	                val=sc.nextInt();
+	                checkval(a,val);
+	                break;
+	                
+	            case 8:
+	                sort(a);
+	                System.out.println("Array List element are sorted");
+	                break;
+	                
+	            case 9:
+	                shuffle(a);
+	                System.out.println("All element are shuffled");
+	                break;
+	               
+	            case 10:
+	                System.out.print("Enter the index : ");
+	                index = sc.nextInt();
+	                System.out.print("Enter the value to replace: ");
+	                val = sc.nextInt();
+	                update(a,index,val);
+	                break;
+	                
+	            case 11:
+	                System.out.println("Exited!!!");
+	                break;
+	                
+	            default:
+	                System.out.println("Enter a valid choice!!");
+	                break;
+	           
+	        }
+	         System.out.println("element in arraylist : "+a);
+	       
+	    }while(choice!=11);
+	    
+	}
+}
