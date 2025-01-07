@@ -1,0 +1,132 @@
+import java.util.*;
+public class Main
+{
+    public static void add(Set<Integer> set,int val)
+    {
+        
+        Integer[] arr = set.toArray(new Integer[0]);
+        for(int i=0;i<arr.length;i++)
+        {
+          if(!set.isEmpty() && arr[i]==val )
+           {
+             System.out.println("the Element already in set(duplicate)");   
+             continue;
+           }
+          else
+           {
+            continue;
+           }
+        }
+        
+        set.add(val);
+    }
+    
+    public static void remove(Set<Integer> set,int val)
+    {
+        set.remove(val);
+        System.out.println("Element removed successfully!!");
+    }
+    
+    public static void checkempty(Set<Integer> set)
+    {
+        String check = !set.isEmpty() ? "Set is not empty!!" : "Set is empty!!";
+        System.out.println(check);
+    }
+    
+    public static void sizeofset(Set<Integer> set)
+    {
+        int size = set.size();
+        System.out.println(size);
+    }
+    
+    public static void checkspecificelement(Set<Integer> set,int val)
+    {
+        System.out.println(set.contains(val));
+    }
+    
+    public static void iterate(Set<Integer> set)
+    {
+        Iterator value = set.iterator(); 
+        System.out.println("The iterate value : ");
+        while(value.hasNext())
+        {
+            System.out.print(value.next()+" ");
+        }
+    }
+    
+    public static void clear(Set<Integer> set)
+    {
+        set.clear();
+        System.out.println("All Element deleted successfully!!");
+    }
+    
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		HashSet<Integer> set = new HashSet<Integer>();
+		
+		System.out.println("1. Adding an Element in set");
+		System.out.println("2. Remove Element from set");
+		System.out.println("3. Check for empty set");
+		System.out.println("4. Chech size of set");
+		System.out.println("5. Check the specific element present or not");
+		System.out.println("6. Iterate all value in set");
+		System.out.println("7. Delete all element in set");
+		System.out.println("8. Exit ");
+		
+		int choice,val;
+		
+		do{
+		    
+		    System.out.print("Enter your choice : ");
+		    choice = sc.nextInt();
+		    
+		    switch(choice)
+		    {
+		       case 1:
+		          System.out.print("Enter the value to add : ");
+		          val = sc.nextInt();
+		          add(set,val);
+		          break;
+		          
+		       case 2:
+		          System.out.print("Enter the value to remove : ");
+		          val = sc.nextInt();
+		          remove(set,val);
+		          break;
+		          
+		       case 3:
+		          checkempty(set);
+		          break;
+		          
+		       case 4:
+		           sizeofset(set);
+		           break;
+		           
+		       case 5:
+		           System.out.print("Enter the element to check if present in set: ");
+		           val=sc.nextInt();
+		           checkspecificelement(set,val);
+		           break;
+		           
+		       case 6:
+		           iterate(set);
+		           break;
+		           
+		       case 7:
+		           clear(set);
+		           break;
+		          
+		       case 8:
+		           System.out.println("Exited");
+		           break;
+		           
+		       default:
+		          System.out.println("Invalid choice!!!");
+		          break;
+		    }
+		    System.out.println("Elements in the set : "+set);
+		}while(choice!=8);
+	}
+}
