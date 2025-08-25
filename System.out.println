@@ -1,0 +1,62 @@
+import java.io.OutputStream;
+import java.io.IOException;
+
+class MyPrintStream 
+{
+    private final OutputStream out;
+
+    public MyPrintStream(OutputStream out) 
+    {
+        this.out = out;
+    }
+
+    public void println(String message) 
+    {
+        try 
+        {
+            out.write((message + "\n").getBytes()); 
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void println(int number) 
+    {
+        println(String.valueOf(number)); 
+    }
+
+    public void println(double number) 
+    {
+        println(String.valueOf(number));
+    }
+
+    public void println(boolean value) 
+    {
+        println(String.valueOf(value));
+    }
+
+    public void println(char c) 
+    {
+        println(String.valueOf(c));
+    }
+}
+
+
+class MySystem 
+{
+    static MyPrintStream out = new MyPrintStream(java.lang.System.out); 
+}
+
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        MySystem.out.println("Hello World");
+        MySystem.out.println(123);
+        MySystem.out.println(45.67);
+        MySystem.out.println(true);
+        MySystem.out.println('A');
+    }
+}
